@@ -11,7 +11,7 @@ history = re.sub(r':mod:|:class:|:func:', '', open('HISTORY.rst', encoding='utf-
 test_requirements = open('tests/requirements.txt').read().splitlines()
 
 setup(
-    name='dateparser',
+    name='dateparser-ql2',
     version=__version__,
     description='Date parsing library designed to parse dates from HTML pages',
     long_description=introduction + '\n\n' + history,
