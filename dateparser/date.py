@@ -194,7 +194,8 @@ class _DateLocaleParser:
     def _try_freshness_parser(self):
         try:
             return freshness_date_parser.get_date_data(self._get_translated_date(), self._settings)
-        except (OverflowError, ValueError):
+        except (OverflowError, ValueError) as e:
+            print(f"dateparser error 1: {e}")
             return None
 
     def _try_absolute_parser(self):
@@ -216,8 +217,9 @@ class _DateLocaleParser:
                 date_obj=date_obj,
                 period=period,
             )
-        except ValueError:
+        except ValueError as e:
             self._settings.DATE_ORDER = _order
+            print(f"dateparser error 2: {e}")
             return None
 
     def _try_given_formats(self):

@@ -152,7 +152,8 @@ class _no_spaces_parser:
                 dt = strptime(datestring, fmt), cls._get_period(fmt)
                 if len(str(dt[0].year)) == 4:
                     return dt
-            except:
+            except Exception as e:
+                print(f"dateparser error 3: {e}")
                 pass
         return None
 
